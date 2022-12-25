@@ -43,6 +43,7 @@ movieController.getMovies = async (req, res) => {
     });
     return res.status(200).json({ success: true, movies });
   } catch (error) {
+
     return res.status(500).json({ success: false, error });
   }
 };
@@ -50,6 +51,7 @@ movieController.getMovies = async (req, res) => {
 movieController.postMovie = async (req, res) => {
   try {
     await Movies.insertMany(movieData);
+    
     return res.status(200).json({ success: true, message: "inserted" });
   } catch (error) {
     return res.status(400).json({ success: false, error });
